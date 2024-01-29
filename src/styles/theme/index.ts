@@ -18,26 +18,26 @@ declare module "@emotion/react" {
 
 export const LIGHT_THEME: Theme = {
   PRIMARY: "#003366",
-  SECONDARY: "#F2F2F2",
+  SECONDARY: "#F7F8FA",
   ACCENT: "#30A6A6",
   COMPLEMENTARY: "#FFFAF0",
   TEXT: "#2B2B2B",
   GRAY: {
-    LIGHT: "#F0F0F0",
-    MEDIUM: "#BFBFBF",
-    DARK: "#808080",
+    LIGHT: "#EEEFF1",
+    MEDIUM: "#C0C5C9",
+    DARK: "#808388",
   },
 };
 
 export const DARK_THEME: Theme = {
   PRIMARY: "#336699",
-  SECONDARY: "#2B2B2B",
+  SECONDARY: "#2C2D2E",
   ACCENT: "#66CCCC",
   COMPLEMENTARY: "#33302E",
   TEXT: "#E6E6E6",
   GRAY: {
-    LIGHT: "#505050",
-    MEDIUM: "#404040",
-    DARK: "#303030",
+    LIGHT: "#3C3D40",
+    MEDIUM: "#626368",
+    DARK: "#b9bbc5",
   },
 };
