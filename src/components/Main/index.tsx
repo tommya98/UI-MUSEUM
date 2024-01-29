@@ -7,13 +7,15 @@ const Main = () => {
     <MyComponent />,
     <MyComponent />,
     <MyComponent />,
+    <MyComponent />,
+    <MyComponent />,
   ] as React.ReactNode[];
 
   return (
     <S.Wrapper>
-      <ShowcaseList childrens={childrens} />
-      <ShowcaseList childrens={childrens} />
-      <ShowcaseList childrens={childrens} />
+      <ShowcaseList childrens={childrens} direction="up" />
+      <ShowcaseList childrens={childrens} direction="down" />
+      <ShowcaseList childrens={childrens} direction="up" />
     </S.Wrapper>
   );
 };

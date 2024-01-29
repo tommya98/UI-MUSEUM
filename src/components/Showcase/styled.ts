@@ -8,6 +8,7 @@ export const Wrapper = styled.div<IWrapperProps>`
   position: relative;
   width: 300px;
   height: 300px;
+  margin: 20px;
   overflow: hidden;
   background-color: ${({ bgColor, theme }) => bgColor || theme.GRAY.LIGHT};
   cursor: pointer;
