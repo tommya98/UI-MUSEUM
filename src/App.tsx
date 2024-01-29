@@ -5,6 +5,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 import ResetStyles from "./styles/ResetStyles";
 import { DARK_THEME, LIGHT_THEME } from "./styles/theme";
 import ThemeToggle from "./components/ThemeToggle";
+import Layout from "./Layout";
 
 function App() {
   const [isDark, setIsDark] = useState(false);
@@ -14,6 +15,7 @@ function App() {
       <ResetStyles />
       <GlobalStyles />
       <ThemeToggle isDark={isDark} onClick={() => setIsDark((prev) => !prev)} />
+      <Layout />
     </ThemeProvider>
   );
 }

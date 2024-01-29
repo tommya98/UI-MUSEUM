@@ -6,8 +6,7 @@ export const Wrapper = styled.footer`
   align-items: center;
   flex-direction: column;
   gap: 4px;
-  height: 50px;
-  margin: 0px 24px 24px 24px;
+  height: 6%;
   border-top: 1px solid ${({ theme }) => theme.GRAY.MEDIUM};
 
   p,
