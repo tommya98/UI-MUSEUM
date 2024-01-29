@@ -8,11 +8,11 @@ export const Wrapper = styled.div<IWrapperProps>`
   position: relative;
   width: 300px;
   height: 300px;
-
   overflow: hidden;
   background-color: ${({ bgColor, theme }) => bgColor || theme.GRAY.LIGHT};
   cursor: pointer;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
 `;
 
 export const Content = styled.div`
