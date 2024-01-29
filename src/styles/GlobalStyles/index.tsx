@@ -9,6 +9,10 @@ const style = (theme: Theme) => css`
       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     background-color: ${theme.SECONDARY};
   }
+
+  button {
+    border: none;
+  }
 `;
 
 const GlobalStyles = () => <Global styles={style} />;

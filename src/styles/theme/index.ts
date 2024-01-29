@@ -8,6 +8,11 @@ declare module "@emotion/react" {
     ACCENT: string;
     COMPLEMENTARY: string;
     TEXT: string;
+    GRAY: {
+      LIGHT: string;
+      MEDIUM: string;
+      DARK: string;
+    };
   }
 }
 
@@ -17,6 +22,11 @@ export const LIGHT_THEME: Theme = {
   ACCENT: "#30A6A6",
   COMPLEMENTARY: "#FFFAF0",
   TEXT: "#2B2B2B",
+  GRAY: {
+    LIGHT: "#F0F0F0",
+    MEDIUM: "#BFBFBF",
+    DARK: "#808080",
+  },
 };
 
 export const DARK_THEME: Theme = {
@@ -25,4 +35,9 @@ export const DARK_THEME: Theme = {
   ACCENT: "#66CCCC",
   COMPLEMENTARY: "#33302E",
   TEXT: "#E6E6E6",
+  GRAY: {
+    LIGHT: "#505050",
+    MEDIUM: "#404040",
+    DARK: "#303030",
+  },
 };
