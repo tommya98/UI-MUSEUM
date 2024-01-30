@@ -1,53 +1,70 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Showcase from "../Showcase";
 import * as S from "./styled";
 import addChildEventListener from "../../utils/addChildEventListener";
 
+export type TDirection = "up" | "down";
+
 interface IShowcaseListProps {
   childrens: React.ReactNode[];
-  direction: "up" | "down";
+  direction: TDirection;
 }
 
 const ShowcaseList = ({ childrens, direction }: IShowcaseListProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [contentHeight, setContentHeight] = useState(0);
+  const [wrapperHeight, setWrapperHeight] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  const handleMouseEnter = () => {
-    setIsPaused(true);
-    console.log("enter");
-  };
-  const handleMouseLeave = () => {
-    setIsPaused(false);
-    console.log("leave");
-  };
+  const handleMouseEnter = () => setIsPaused(true);
+  const handleMouseLeave = () => setIsPaused(false);
 
   const { addChildEvents, removeChildEvents } = addChildEventListener([
     { eventType: "mouseenter", handler: handleMouseEnter },
     { eventType: "mouseleave", handler: handleMouseLeave },
   ]);
 
+  useLayoutEffect(() => {
+    const wrapper = wrapperRef.current;
+    const content = contentRef.current;
+    if (!wrapper || !content) return;
+
+    setContentHeight(content.clientHeight);
+    setWrapperHeight(wrapper.clientHeight);
+  }, []);
+
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
-    const elements = Array.from(wrapper.children) as HTMLElement[];
 
+    const elements = Array.from(wrapper.children) as HTMLElement[];
     addChildEvents(elements);
 
-    return () => {
-      removeChildEvents(elements);
-    };
-  }, [isPaused]);
+    return () => removeChildEvents(elements);
+  }, []);
 
   return (
     <S.Wrapper ref={wrapperRef}>
-      <S.Original isPaused={isPaused}>
+      <S.Original
+        isPaused={isPaused}
+        direction={direction}
+        ref={contentRef}
+        contentHeight={contentHeight}
+        wrapperHeight={wrapperHeight}
+      >
         {childrens.map((children, idx) => (
-          <Showcase key={idx}>{children}</Showcase>
+          <Showcase key={`marquee-item ${idx * 2}`}>{children}</Showcase>
         ))}
       </S.Original>
-      <S.Copy isPaused={isPaused}>
+      <S.Copy
+        isPaused={isPaused}
+        direction={direction}
+        contentHeight={contentHeight}
+        wrapperHeight={wrapperHeight}
+      >
         {childrens.map((children, idx) => (
-          <Showcase key={idx}>{children}</Showcase>
+          <Showcase key={`marquee-item ${idx * 2 + 1}`}>{children}</Showcase>
         ))}
       </S.Copy>
     </S.Wrapper>
