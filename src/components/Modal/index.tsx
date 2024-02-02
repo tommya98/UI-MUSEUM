@@ -3,6 +3,8 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { closeModal } from "../../store";
+import ModalCard from "../ModalCard";
+import MyComponent from "../MyComponent";
 
 const Modal = () => {
   const modalState = useSelector((state: RootState) => state.modals);
@@ -25,7 +27,11 @@ const Modal = () => {
   return (
     modalState.isOpen && (
       <S.Background ref={backgroundRef}>
-        <S.Container>Modal</S.Container>
+        <S.Container>
+          <ModalCard>
+            <MyComponent />
+          </ModalCard>
+        </S.Container>
       </S.Background>
     )
   );

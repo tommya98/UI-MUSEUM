@@ -16,6 +16,7 @@ export const Container = styled.section`
   left: 0;
   width: 80vw;
   height: 80vh;
+  border-radius: 30px;
   z-index: 100;
   transform: translate(10vw, 10vh);
   background-color: ${({ theme }) => theme.GRAY.MEDIUM};
