@@ -81,7 +81,7 @@ export const CloseBtn = styled.button`
 
 export const Content = styled.div`
   display: flex;
-  width: 45%;
+  width: 60%;
   height: 90%;
   align-items: center;
   justify-content: center;
@@ -94,9 +94,9 @@ export const Detail = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  width: 45%;
+  width: 35%;
   height: 70%;
-  padding: 0 3rem;
+  padding: 0 2rem 0 0;
   gap: 2rem;
   background-color: transparent;
 `;
