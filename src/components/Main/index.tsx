@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import * as S from "./styled";
 
 import ShowcaseList from "../ShowcaseList";
-import MyComponent from "../MyComponent";
+import MyComponent from "../../artworks/MyComponent";
 
 const Main = () => {
   const childrens = [

@@ -14,9 +14,9 @@ const ModalCard = () => {
       <S.CloseBtn onClick={handleBtnClick} />
       <S.Content>{modalState.component}</S.Content>
       <S.Detail>
-        <S.Title>컴포넌트 이름</S.Title>
-        <S.Date>2024.02.02</S.Date>
-        <S.Description>컴포넌트에 대한 설명</S.Description>
+        <S.Title>title</S.Title>
+        <S.Date>date</S.Date>
+        <S.Description>description</S.Description>
       </S.Detail>
     </S.Container>
   );
