@@ -1,19 +1,21 @@
-import * as S from "./styled";
+import { ReactNode } from "react";
 import { useDispatch } from "react-redux";
+import * as S from "./styled";
+
 import { openModal } from "../../store";
 
 interface IShowcaseProps {
   bgColor?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 const Showcase = ({ bgColor, children }: IShowcaseProps) => {
   const dispatch = useDispatch();
 
-  const handleClick = (modalId: number) => dispatch(openModal(modalId));
+  const handleClick = (component: ReactNode) => dispatch(openModal(component));
 
   return (
-    <S.Wrapper bgColor={bgColor} onClick={() => handleClick(0)}>
+    <S.Wrapper bgColor={bgColor} onClick={() => handleClick(children)}>
       <S.Content>{children}</S.Content>
     </S.Wrapper>
   );

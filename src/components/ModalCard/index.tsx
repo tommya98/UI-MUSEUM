@@ -1,12 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
 import * as S from "./styled";
-import { useDispatch } from "react-redux";
-import { closeModal } from "../../store";
 
-interface ModalCardProps {
-  children: React.ReactNode;
-}
+import { RootState, closeModal } from "../../store";
 
-const ModalCard = ({ children }: ModalCardProps) => {
+const ModalCard = () => {
+  const modalState = useSelector((state: RootState) => state.modals);
   const dispatch = useDispatch();
 
   const handleBtnClick = () => dispatch(closeModal());
@@ -14,7 +12,7 @@ const ModalCard = ({ children }: ModalCardProps) => {
   return (
     <S.Container>
       <S.CloseBtn onClick={handleBtnClick} />
-      <S.Content>{children}</S.Content>
+      <S.Content>{modalState.component}</S.Content>
       <S.Detail>
         <S.Title>컴포넌트 이름</S.Title>
         <S.Date>2024.02.02</S.Date>

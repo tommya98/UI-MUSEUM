@@ -1,12 +1,13 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import Showcase from "../Showcase";
+import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
 import * as S from "./styled";
+
+import Showcase from "../Showcase";
 import addChildEventListener from "../../utils/addChildEventListener";
 
 export type TDirection = "up" | "down";
 
 interface IShowcaseListProps {
-  childrens: React.ReactNode[];
+  childrens: ReactNode[];
   direction: TDirection;
 }
 

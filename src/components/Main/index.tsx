@@ -1,15 +1,17 @@
+import { ReactNode } from "react";
 import * as S from "./styled";
+
 import ShowcaseList from "../ShowcaseList";
 import MyComponent from "../MyComponent";
 
 const Main = () => {
   const childrens = [
-    <MyComponent />,
-    <MyComponent />,
-    <MyComponent />,
-    <MyComponent />,
-    <MyComponent />,
-  ] as React.ReactNode[];
+    <MyComponent bg="red" />,
+    <MyComponent bg="green" />,
+    <MyComponent bg="black" />,
+    <MyComponent bg="blue" />,
+    <MyComponent bg="purple" />,
+  ] as ReactNode[];
 
   return (
     <S.Wrapper>

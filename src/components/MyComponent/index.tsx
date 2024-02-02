@@ -1,7 +1,11 @@
 import * as S from "./styled";
 
-const MyComponent = () => {
-  return <S.Button>MyButton</S.Button>;
+export interface IMyComponentProps {
+  bg?: string;
+}
+
+const MyComponent = ({ bg }: IMyComponentProps) => {
+  return <S.Button bg={bg}>MyButton</S.Button>;
 };
 
 export default MyComponent;

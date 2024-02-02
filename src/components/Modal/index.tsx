@@ -1,10 +1,9 @@
-import * as S from "./styled";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { closeModal } from "../../store";
+import * as S from "./styled";
+
+import { RootState, closeModal } from "../../store";
 import ModalCard from "../ModalCard";
-import MyComponent from "../MyComponent";
 
 const Modal = () => {
   const modalState = useSelector((state: RootState) => state.modals);
@@ -28,9 +27,7 @@ const Modal = () => {
     modalState.isOpen && (
       <S.Background ref={backgroundRef}>
         <S.Container>
-          <ModalCard>
-            <MyComponent />
-          </ModalCard>
+          <ModalCard />
         </S.Container>
       </S.Background>
     )

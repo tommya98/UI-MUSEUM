@@ -1,26 +1,27 @@
+import { ReactNode } from "react";
 import { createSlice, PayloadAction, configureStore } from "@reduxjs/toolkit";
 
 interface ModalState {
   isOpen: boolean;
-  modalId: number | null;
+  component: ReactNode | null;
 }
 
 const initialState: ModalState = {
   isOpen: false,
-  modalId: null,
+  component: null,
 };
 
 const modalSlice = createSlice({
   name: "modals",
   initialState,
   reducers: {
-    openModal: (state, action: PayloadAction<number>) => {
+    openModal: (state, action: PayloadAction<ReactNode>) => {
       state.isOpen = true;
-      state.modalId = action.payload;
+      state.component = action.payload;
     },
     closeModal: (state) => {
       state.isOpen = false;
-      state.modalId = null;
+      state.component = null;
     },
   },
 });
@@ -29,6 +30,13 @@ const store = configureStore({
   reducer: {
     modals: modalSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [modalSlice.actions.openModal.type],
+        ignoredPaths: ["modals.component"],
+      },
+    }),
 });
 
 export const { openModal, closeModal } = modalSlice.actions;
