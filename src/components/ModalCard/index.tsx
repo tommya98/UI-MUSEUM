@@ -1,19 +1,19 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as S from "./styled";
 
 import { RootState, closeModal } from "../../store";
-import React from "react";
 
 const ModalCard = () => {
   const modalState = useSelector((state: RootState) => state.modals);
   const dispatch = useDispatch();
 
-  const handleBtnClick = () => dispatch(closeModal());
   const component = modalState.component;
-
   if (!React.isValidElement(component)) return null;
+  const { title, date, description, url } = component.props;
 
-  const { title, date, description } = component.props;
+  const handleBtnClick = () => dispatch(closeModal());
+  const handleGithubClick = () => window.open(url, "_blank");
 
   return (
     <S.Container>
@@ -21,6 +21,7 @@ const ModalCard = () => {
       <S.Content>{component}</S.Content>
       <S.Detail>
         <S.Title>{title}</S.Title>
+        <S.Github src="/github-mark.svg" onClick={handleGithubClick} />
         <S.Date>{date}</S.Date>
         <S.Description>{description}</S.Description>
       </S.Detail>

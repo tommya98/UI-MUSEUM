@@ -94,6 +94,7 @@ export const Detail = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  position: relative;
   width: 35%;
   height: 70%;
   padding: 0 2rem 0 0;
@@ -115,4 +116,14 @@ export const Date = styled.p`
 export const Description = styled.p`
   font-size: 1rem;
   background-color: transparent;
+`;
+
+export const Github = styled.img`
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
 `;
