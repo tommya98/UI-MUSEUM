@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as S from "./styled";
 
-import { RootState, closeModal } from "../../store";
+import { RootState, closeModal } from "../../stores/ModalStore";
 import ModalCard from "../ModalCard";
 
 export type TModalStatus = "OPENED" | "OPENING" | "CLOSING" | "CLOSED";

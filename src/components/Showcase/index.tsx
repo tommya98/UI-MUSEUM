@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { useDispatch } from "react-redux";
 import * as S from "./styled";
 
-import { openModal } from "../../store";
+import { openModal } from "../../stores/ModalStore";
 
 interface IShowcaseProps {
   bgColor?: string;
