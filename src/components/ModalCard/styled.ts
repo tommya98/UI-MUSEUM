@@ -1,6 +1,10 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
+interface IComponentProps {
+  scale: number;
+}
+
 const rotate1 = keyframes`
   0% {
     transform: rotate(45deg);
@@ -89,6 +93,11 @@ export const Content = styled.div`
   justify-content: center;
   border-radius: 12px;
   background-color: ${({ theme }) => theme.GRAY.LIGHT};
+  overflow: hidden;
+`;
+
+export const Component = styled.div<IComponentProps>`
+  transform: scale(${({ scale }) => scale});
 `;
 
 export const Detail = styled.div`
@@ -127,4 +136,32 @@ export const Github = styled.img`
   top: 1rem;
   right: 1rem;
   cursor: pointer;
+`;
+
+export const ScaleBtns = styled.button`
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+`;
+
+export const BtnIcon = styled.img`
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid black;
+  translate: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
+export const Scale = styled.div`
+  font-size: 1rem;
+  background-color: transparent;
+  margin-right: 1rem;
 `;
