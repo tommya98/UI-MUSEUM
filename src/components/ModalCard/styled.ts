@@ -1,16 +1,6 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  height: 100%;
-  border-radius: 30px;
-  background-color: transparent;
-`;
-
 const rotate1 = keyframes`
   0% {
     transform: rotate(45deg);
@@ -33,6 +23,17 @@ const rotate2 = keyframes`
   100% {
     transform: rotate(-135deg);
   }
+`;
+
+export const Container = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background-color: transparent;
 `;
 
 export const CloseBtn = styled.button`
@@ -80,6 +81,7 @@ export const CloseBtn = styled.button`
 `;
 
 export const Content = styled.div`
+  position: relative;
   display: flex;
   width: 60%;
   height: 90%;
@@ -94,7 +96,6 @@ export const Detail = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  position: relative;
   width: 35%;
   height: 70%;
   padding: 0 2rem 0 0;
@@ -123,7 +124,7 @@ export const Github = styled.img`
   height: 24px;
   background-color: transparent;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 1rem;
+  right: 1rem;
   cursor: pointer;
 `;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as S from "./styled";
 
 import { RootState, closeModal } from "../../store";
+import githubIcon from "../../assets/github-mark.svg";
 
 const ModalCard = () => {
   const modalState = useSelector((state: RootState) => state.modals);
@@ -18,10 +19,12 @@ const ModalCard = () => {
   return (
     <S.Container>
       <S.CloseBtn onClick={handleBtnClick} />
-      <S.Content>{component}</S.Content>
+      <S.Content>
+        <S.Github src={githubIcon} onClick={handleGithubClick} />
+        {component}
+      </S.Content>
       <S.Detail>
         <S.Title>{title}</S.Title>
-        <S.Github src="/github-mark.svg" onClick={handleGithubClick} />
         <S.Date>{date}</S.Date>
         <S.Description>{description}</S.Description>
       </S.Detail>
