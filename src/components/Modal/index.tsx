@@ -39,7 +39,9 @@ const Modal = () => {
 
   useEffect(() => {
     if (modalState.isOpen) handleStateTransition(OPENING, OPENED);
-    else handleStateTransition(CLOSING, CLOSED);
+    else if (!modalState.isOpen && modalStatus !== CLOSED) {
+      handleStateTransition(CLOSING, CLOSED);
+    }
 
     const backgroundContent = backgroundRef.current;
     if (!backgroundContent) return;
