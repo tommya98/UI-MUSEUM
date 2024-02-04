@@ -1,16 +1,19 @@
-import { useState, isValidElement } from "react";
+import { useState, isValidElement, ChangeEvent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as S from "./styled";
 
 import { RootState, closeModal } from "../../stores/ModalStore";
 import githubIcon from "../../assets/github-mark.svg";
-import plusIcon from "../../assets/plus.svg";
-import minusIcon from "../../assets/minus.svg";
+import InputRange from "../InputRange";
 
 const ModalCard = () => {
   const modalState = useSelector((state: RootState) => state.modals);
   const dispatch = useDispatch();
   const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    if (modalState.isOpen) setScale(1);
+  }, [modalState.isOpen]);
 
   const component = modalState.component;
   if (!isValidElement(component)) return null;
@@ -18,8 +21,8 @@ const ModalCard = () => {
 
   const handleBtnClick = () => dispatch(closeModal());
   const handleGithubClick = () => window.open(url, "_blank");
-  const handleScaleUp = () => setScale(scale * 1.1);
-  const handleScaleDown = () => setScale(scale / 1.1);
+  const hnadleInputChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setScale(Number(e.target.value));
 
   return (
     <S.Container>
@@ -28,9 +31,13 @@ const ModalCard = () => {
         <S.Github src={githubIcon} onClick={handleGithubClick} />
         <S.Component scale={scale}>{component}</S.Component>
         <S.ScaleBtns>
-          <S.Scale>{scale.toFixed(2)}</S.Scale>
-          <S.BtnIcon src={plusIcon} onClick={handleScaleUp} />
-          <S.BtnIcon src={minusIcon} onClick={handleScaleDown} />
+          <InputRange
+            value={scale}
+            min={0.5}
+            max={5}
+            step={0.1}
+            onChange={hnadleInputChange}
+          />
         </S.ScaleBtns>
       </S.Content>
       <S.Detail>

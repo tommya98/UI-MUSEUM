@@ -98,6 +98,7 @@ export const Content = styled.div`
 
 export const Component = styled.div<IComponentProps>`
   transform: scale(${({ scale }) => scale});
+  background-color: transparent;
 `;
 
 export const Detail = styled.div`
@@ -141,7 +142,8 @@ export const Github = styled.img`
 export const ScaleBtns = styled.button`
   position: absolute;
   bottom: 1rem;
-  right: 1rem;
+  right: 50%;
+  transform: translateX(50%);
   display: flex;
   align-items: center;
   justify-content: center;
