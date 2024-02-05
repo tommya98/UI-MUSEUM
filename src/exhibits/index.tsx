@@ -26,7 +26,7 @@ const componentsWithMetaData: IComponentsWithMetaData[] = [
       title: "기본 빨강 버튼",
       description: "테스트용 기본 빨강 버튼입니다.",
       date: "2024-02-02",
-      url: "https://github.com/tommya98",
+      url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/MyComponent",
     },
   },
   {
@@ -38,7 +38,7 @@ const componentsWithMetaData: IComponentsWithMetaData[] = [
       title: "기본 파랑 버튼",
       description: "테스트용 기본 파랑 버튼입니다.",
       date: "2024-02-02",
-      url: "https://github.com/tommya98",
+      url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/MyComponent",
     },
   },
   {
@@ -50,7 +50,7 @@ const componentsWithMetaData: IComponentsWithMetaData[] = [
       title: "기본 초록 버튼",
       description: "테스트용 기본 초록 버튼입니다.",
       date: "2024-02-02",
-      url: "https://github.com/tommya98",
+      url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/MyComponent",
     },
   },
   {
@@ -62,7 +62,7 @@ const componentsWithMetaData: IComponentsWithMetaData[] = [
       title: "기본 주황 버튼",
       description: "테스트용 기본 주황 버튼입니다.",
       date: "2024-02-02",
-      url: "https://github.com/tommya98",
+      url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/MyComponent",
     },
   },
   {
