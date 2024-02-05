@@ -7,9 +7,13 @@ const style = (theme: Theme) => css`
       BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
       "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-    background-color: ${theme.COMPLEMENTARY};
     text-decoration: none;
     color: ${theme.TEXT};
+  }
+
+  html,
+  body {
+    background-color: ${theme.COMPLEMENTARY};
   }
 
   button {
