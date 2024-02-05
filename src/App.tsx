@@ -7,7 +7,7 @@ import ResetStyles from "./styles/ResetStyles";
 import { DARK_THEME, LIGHT_THEME } from "./styles/theme";
 import ThemeToggle from "./components/ThemeToggle";
 import Layout from "./Layout";
-import store from "./stores/ModalStore";
+import store from "./stores";
 
 function App() {
   const [isDark, setIsDark] = useState(false);
