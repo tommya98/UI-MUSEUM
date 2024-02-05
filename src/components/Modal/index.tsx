@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as S from "./styled";
 
-import { RootState, closeModal } from "../../stores/ModalStore";
+import { RootState } from "../../stores";
+import { closeModal } from "../../stores/ModalStateSlice";
 import ModalCard from "../ModalCard";
 
 export type TModalStatus = "OPENED" | "OPENING" | "CLOSING" | "CLOSED";
@@ -14,7 +15,7 @@ const CLOSED = "CLOSED";
 const ANIMATION_DURATION = 500;
 
 const Modal = () => {
-  const modalState = useSelector((state: RootState) => state.modals);
+  const modalState = useSelector((state: RootState) => state.modalState);
   const dispatch = useDispatch();
   const backgroundRef = useRef<HTMLDivElement>(null);
   const timeoutId = useRef<number | null>(null);

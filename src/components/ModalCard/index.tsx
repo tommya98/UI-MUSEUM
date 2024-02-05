@@ -2,12 +2,13 @@ import { useState, isValidElement, ChangeEvent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as S from "./styled";
 
-import { RootState, closeModal } from "../../stores/ModalStore";
+import { RootState } from "../../stores";
+import { closeModal } from "../../stores/ModalStateSlice";
 import githubIcon from "../../assets/github-mark.svg";
 import InputRange from "../InputRange";
 
 const ModalCard = () => {
-  const modalState = useSelector((state: RootState) => state.modals);
+  const modalState = useSelector((state: RootState) => state.modalState);
   const dispatch = useDispatch();
   const [scale, setScale] = useState(1);
 
