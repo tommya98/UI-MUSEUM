@@ -15,7 +15,7 @@ const CLOSED = "CLOSED";
 const ANIMATION_DURATION = 500;
 
 const Modal = () => {
-  const modalState = useSelector((state: RootState) => state.modalState);
+  const { isOpen } = useSelector((state: RootState) => state.modalState);
   const dispatch = useDispatch();
   const backgroundRef = useRef<HTMLDivElement>(null);
   const timeoutId = useRef<number | null>(null);
@@ -39,17 +39,18 @@ const Modal = () => {
   };
 
   useEffect(() => {
-    if (modalState.isOpen) handleStateTransition(OPENING, OPENED);
-    else if (!modalState.isOpen && modalStatus !== CLOSED) {
-      handleStateTransition(CLOSING, CLOSED);
-    }
-
     const backgroundContent = backgroundRef.current;
     if (!backgroundContent) return;
     backgroundContent.addEventListener("click", handleClick);
 
     return () => backgroundContent.removeEventListener("click", handleClick);
-  }, [modalState.isOpen]);
+  }, []);
+
+  useEffect(() => {
+    isOpen
+      ? handleStateTransition(OPENING, OPENED)
+      : handleStateTransition(CLOSING, CLOSED);
+  }, [isOpen]);
 
   return (
     <S.Background ref={backgroundRef} modalStatus={modalStatus}>
