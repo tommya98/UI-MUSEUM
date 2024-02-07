@@ -8,15 +8,16 @@ import githubIcon from "../../assets/github-mark.svg";
 import InputRange from "../InputRange";
 
 const ModalCard = () => {
-  const modalState = useSelector((state: RootState) => state.modalState);
+  const { isOpen, component } = useSelector(
+    (state: RootState) => state.modalState
+  );
   const dispatch = useDispatch();
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    if (modalState.isOpen) setScale(1);
-  }, [modalState.isOpen]);
+    if (isOpen) setScale(1);
+  }, [isOpen]);
 
-  const component = modalState.component;
   if (!isValidElement(component)) return null;
   const { title, date, description, url } = component.props;
 

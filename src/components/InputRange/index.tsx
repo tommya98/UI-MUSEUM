@@ -1,7 +1,7 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, InputHTMLAttributes } from "react";
 import * as S from "./styled";
 
-interface IInputRangeProps extends HTMLInputElement {
+interface IInputRangeProps extends InputHTMLAttributes<HTMLInputElement> {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
