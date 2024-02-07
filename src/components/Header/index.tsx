@@ -1,14 +1,12 @@
 import * as S from "./styled";
 
 const Header = () => {
-  const onClick = () => {
-    window.location.href = "/";
-  };
+  const handleClick = () => (window.location.href = "/");
 
   return (
     <S.Wrapper>
       <S.Header>
-        <a onClick={onClick}>UI MUSEUM</a>
+        <a onClick={handleClick}>UI MUSEUM</a>
       </S.Header>
     </S.Wrapper>
   );
