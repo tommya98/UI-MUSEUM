@@ -12,15 +12,16 @@ import store from "./stores";
 function App() {
   const [isDark, setIsDark] = useState(false);
 
+  const handleThemeChange = () => {
+    setIsDark((prev) => !prev);
+  };
+
   return (
     <ThemeProvider theme={isDark ? DARK_THEME : LIGHT_THEME}>
       <Provider store={store}>
         <ResetStyles />
         <GlobalStyles />
-        <ThemeToggle
-          isDark={isDark}
-          onClick={() => setIsDark((prev) => !prev)}
-        />
+        <ThemeToggle isDark={isDark} onClick={handleThemeChange} />
         <Layout />
       </Provider>
     </ThemeProvider>
