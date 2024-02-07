@@ -1,11 +1,7 @@
 import { ChangeEvent } from "react";
 import * as S from "./styled";
 
-interface IInputRangeProps {
-  value: number;
-  min: number;
-  max: number;
-  step: number;
+interface IInputRangeProps extends HTMLInputElement {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
