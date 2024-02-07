@@ -21,20 +21,18 @@ const Main = () => {
     setExhibitLists(selectedExhibits);
   }, [windowSize]);
 
-  return (
-    <S.Wrapper>
-      {exhibitLists.map((exhibits, i) => {
-        const direction = i % 2 === 0 ? "up" : "down";
-        return (
-          <ShowcaseList
-            key={`exhibit_${i}`}
-            childrens={exhibits}
-            direction={direction}
-          />
-        );
-      })}
-    </S.Wrapper>
-  );
+  const exhibitContents = exhibitLists.map((exhibits, i) => {
+    const direction = i % 2 === 0 ? "up" : "down";
+    return (
+      <ShowcaseList
+        key={`exhibit_${i}`}
+        childrens={exhibits}
+        direction={direction}
+      />
+    );
+  });
+
+  return <S.Wrapper>{exhibitContents}</S.Wrapper>;
 };
 
 export default Main;
