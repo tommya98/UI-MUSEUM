@@ -47,9 +47,10 @@ const Modal = () => {
   }, []);
 
   useEffect(() => {
-    isOpen
-      ? handleStateTransition(OPENING, OPENED)
-      : handleStateTransition(CLOSING, CLOSED);
+    if (isOpen) handleStateTransition(OPENING, OPENED);
+    else if (!isOpen && modalStatus !== CLOSED) {
+      handleStateTransition(CLOSING, CLOSED);
+    }
   }, [isOpen]);
 
   return (
