@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
 import * as S from "./styled";
 
 import Showcase from "../Showcase";
-import addChildEventListener from "../../utils/addChildEventListener";
+import childEventLister from "../../utils/childEventListener";
 
 export type TDirection = "up" | "down";
 
@@ -21,7 +21,7 @@ const ShowcaseList = ({ childrens, direction }: IShowcaseListProps) => {
   const handleMouseEnter = () => setIsPaused(true);
   const handleMouseLeave = () => setIsPaused(false);
 
-  const { addChildEvents, removeChildEvents } = addChildEventListener([
+  const { addChildEvents, removeChildEvents } = childEventLister([
     { eventType: "mouseenter", handler: handleMouseEnter },
     { eventType: "mouseleave", handler: handleMouseLeave },
   ]);
