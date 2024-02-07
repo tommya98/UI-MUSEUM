@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import modalStateSlice from "./ModalStateSlice";
 import windowSizeSlice from "./WindowSizeSlice";
 
