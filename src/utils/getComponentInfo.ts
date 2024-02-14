@@ -3,32 +3,27 @@ import componentsWithMetaData, {
   componentMapper,
 } from "../exhibits";
 
-const getComponentInfo = (componentName: TComponentName | null) => {
-  const targetComponentWithMetaData = componentsWithMetaData.find((obj) => {
-    return obj.componentName === componentName;
-  });
-  if (!targetComponentWithMetaData)
-    return {
-      ComponentToRender: null,
-      title: "",
-      date: "",
-      description: "",
-      url: "",
-      props: {},
-    };
+const defaultValue = {
+  ComponentToRender: null,
+  title: "",
+  date: "",
+  description: "",
+  url: "",
+  props: {},
+};
 
-  const ComponentToRender =
-    componentMapper[targetComponentWithMetaData.componentName];
-  const props = targetComponentWithMetaData.props;
-  const { title, date, description, url } =
-    targetComponentWithMetaData.metaData;
+const getComponentInfo = (componentName: TComponentName | null) => {
+  const targetComponent = componentsWithMetaData.find(
+    (obj) => obj.componentName === componentName
+  );
+  if (!targetComponent) return defaultValue;
+
+  const ComponentToRender = componentMapper[targetComponent.componentName];
+  const { props, metaData } = targetComponent;
 
   return {
     ComponentToRender,
-    title,
-    date,
-    description,
-    url,
+    ...metaData,
     props,
   };
 };

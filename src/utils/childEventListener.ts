@@ -10,9 +10,7 @@ const applyEventToChild = (
   action: TAction,
   { eventType, handler }: IEventProps
 ) => {
-  action === "add"
-    ? child.addEventListener(eventType, handler)
-    : child.removeEventListener(eventType, handler);
+  child[`${action}EventListener`](eventType, handler);
 };
 
 const makeChildEventListeners =
