@@ -5,15 +5,9 @@ interface ISizeProps {
   height: number;
 }
 
-interface IWindowSipzeProps {
-  windowSize: ISizeProps;
-}
-
-const initialState: IWindowSipzeProps = {
-  windowSize: {
-    width: window.innerWidth,
-    height: window.innerHeight,
-  },
+const initialState: ISizeProps = {
+  width: window.innerWidth,
+  height: window.innerHeight,
 };
 
 const windowSizeSlice = createSlice({
@@ -21,7 +15,8 @@ const windowSizeSlice = createSlice({
   initialState,
   reducers: {
     resizeWindow: (state, action: PayloadAction<ISizeProps>) => {
-      state.windowSize = action.payload;
+      state.height = action.payload.height;
+      state.width = action.payload.width;
     },
   },
 });

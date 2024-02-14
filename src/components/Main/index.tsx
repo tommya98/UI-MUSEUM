@@ -9,9 +9,7 @@ import { RootState } from "../../stores";
 
 const Main = () => {
   const [exhibitLists, setExhibitLists] = useState<IComponentsMetaData[][]>([]);
-  const windowSize = useSelector(
-    (state: RootState) => state.windowSize.windowSize
-  );
+  const windowSize = useSelector((state: RootState) => state.windowSize);
 
   useEffect(() => {
     const arrayNum = Math.max(Math.floor(windowSize.width / 400), 1);
