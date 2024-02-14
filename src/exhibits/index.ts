@@ -1,12 +1,13 @@
 import DontClickButton from "./DontClickButton";
+import LikeButton from "./LikeButton";
 import MyComponent from "./MyComponent";
 
 export type TComponentName =
   | "DontClickButton"
+  | "LikeButton"
   | "MyComponent1"
   | "MyComponent2"
-  | "MyComponent3"
-  | "MyComponent4";
+  | "MyComponent3";
 
 export interface IComponentsMetaData {
   componentName: TComponentName;
@@ -21,10 +22,10 @@ export interface IComponentsMetaData {
 
 export const componentMapper = {
   DontClickButton,
+  LikeButton,
   MyComponent1: MyComponent,
   MyComponent2: MyComponent,
   MyComponent3: MyComponent,
-  MyComponent4: MyComponent,
 };
 
 const componentsWithMetaData: IComponentsMetaData[] = [
@@ -38,7 +39,17 @@ const componentsWithMetaData: IComponentsMetaData[] = [
       url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/DontClickButton",
     },
   },
-  ...["red", "blue", "grey", "orange"].map((color, index) => ({
+  {
+    componentName: "LikeButton",
+    props: {},
+    metaData: {
+      title: "좋아요 버튼",
+      description: "좋아요를 누르면 튀어오르는 버튼입니다.",
+      date: "2024-02-14",
+      url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/LikeButton",
+    },
+  },
+  ...["red", "blue", "grey"].map((color, index) => ({
     componentName: `MyComponent${index + 1}` as TComponentName,
     props: { bg: color },
     metaData: {
