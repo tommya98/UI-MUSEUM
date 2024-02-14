@@ -17,8 +17,14 @@ const ANIMATION_DURATION = 500;
 const Modal = () => {
   const { isOpen } = useSelector((state: RootState) => state.modalState);
   const dispatch = useDispatch();
+  const backgroundRef = useRef<HTMLDivElement>(null);
   const timeoutId = useRef<number | null>(null);
   const [modalStatus, setModalStatus] = useState<TModalStatus>(CLOSED);
+
+  const handleClick = (e: MouseEvent) => {
+    if (e.target !== e.currentTarget) return;
+    dispatch(closeModal());
+  };
 
   const handleStateTransition = (
     newStatus: TModalStatus,
@@ -32,9 +38,13 @@ const Modal = () => {
     );
   };
 
-  const handleClick = () => {
-    if (modalStatus === "OPENED") dispatch(closeModal());
-  };
+  useEffect(() => {
+    const backgroundContent = backgroundRef.current;
+    if (!backgroundContent) return;
+    backgroundContent.addEventListener("click", handleClick);
+
+    return () => backgroundContent.removeEventListener("click", handleClick);
+  }, []);
 
   useEffect(() => {
     if (isOpen) handleStateTransition(OPENING, OPENED);
@@ -44,7 +54,7 @@ const Modal = () => {
   }, [isOpen]);
 
   return (
-    <S.Background onClick={handleClick} modalStatus={modalStatus}>
+    <S.Background ref={backgroundRef} modalStatus={modalStatus}>
       <S.Container modalStatus={modalStatus}>
         <ModalCard />
       </S.Container>
