@@ -388,6 +388,8 @@ Error generating stack: `+i.message+`
   border-bottom-color: transparent;
   animation: ${Hy} 1s linear infinite;
 `,Ky=()=>{const[e,t]=z.useState(!1),n=()=>{e||(t(!0),setTimeout(()=>{t(!1)},3e3))};return N.jsx(Qy,{onClick:n,isLoading:e,children:e?N.jsx(Gy,{}):N.jsx(Yy,{children:"Don't Click Me!"})})},Xy=$.button`
+  background-color: transparent;
+
   svg {
     cursor: pointer;
     width: 50px;
