@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as S from "./styled";
 
@@ -7,17 +7,21 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import Modal from "../components/Modal";
 import { resizeWindow } from "../stores/WindowSizeSlice";
+import debounce from "../utils/debounce";
 
 const Layout = () => {
   const dispatch = useDispatch();
 
-  const handleResize = () => {
-    const newSize = {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
-    dispatch(resizeWindow(newSize));
-  };
+  const handleResize = useCallback(
+    debounce(() => {
+      const newSize = {
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+      dispatch(resizeWindow(newSize));
+    }, 100),
+    []
+  );
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
