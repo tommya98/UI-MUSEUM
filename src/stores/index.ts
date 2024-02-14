@@ -8,13 +8,6 @@ const store = configureStore({
     windowSize: windowSizeSlice.reducer,
     modalState: modalStateSlice.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [modalStateSlice.actions.openModal.type],
-        ignoredPaths: ["modals.component"],
-      },
-    }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,4 +1,4 @@
-import { useState, isValidElement, ChangeEvent, useEffect } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as S from "./styled";
 
@@ -6,9 +6,10 @@ import { RootState } from "../../stores";
 import { closeModal } from "../../stores/ModalStateSlice";
 import githubIcon from "../../assets/github-mark.svg";
 import InputRange from "../InputRange";
+import getComponentInfo from "../../utils/getComponentInfo";
 
 const ModalCard = () => {
-  const { isOpen, component } = useSelector(
+  const { isOpen, componentName } = useSelector(
     (state: RootState) => state.modalState
   );
   const dispatch = useDispatch();
@@ -18,8 +19,9 @@ const ModalCard = () => {
     if (isOpen) setScale(1);
   }, [isOpen]);
 
-  if (!isValidElement(component)) return null;
-  const { title, date, description, url } = component.props;
+  const { ComponentToRender, title, date, description, url, props } =
+    getComponentInfo(componentName);
+  if (!ComponentToRender) return null;
 
   const handleBtnClick = () => dispatch(closeModal());
   const handleGithubClick = () => window.open(url, "_blank");
@@ -31,7 +33,9 @@ const ModalCard = () => {
       <S.CloseBtn onClick={handleBtnClick} />
       <S.Content>
         <S.Github src={githubIcon} onClick={handleGithubClick} />
-        <S.Component scale={scale}>{component}</S.Component>
+        <S.Component scale={scale}>
+          <ComponentToRender {...props} />
+        </S.Component>
         <S.ScaleBtns>
           <InputRange
             value={scale}

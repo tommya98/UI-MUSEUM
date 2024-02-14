@@ -1,23 +1,24 @@
-import { ReactNode } from "react";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { TComponentName } from "../../exhibits";
 
 interface IModalState {
   isOpen: boolean;
-  component: ReactNode | null;
+  componentName: TComponentName | null;
 }
 
 const initialState: IModalState = {
   isOpen: false,
-  component: null,
+  componentName: null,
 };
 
 const modalStateSlice = createSlice({
   name: "modals",
   initialState,
   reducers: {
-    openModal: (state, action: PayloadAction<ReactNode>) => {
+    openModal: (state, action: PayloadAction<TComponentName>) => {
       state.isOpen = true;
-      state.component = action.payload;
+      state.componentName = action.payload;
     },
     closeModal: (state) => {
       state.isOpen = false;

@@ -1,17 +1,18 @@
-import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import * as S from "./styled";
 
 import Showcase from "../Showcase";
 import childEventLister from "../../utils/childEventListener";
+import { IComponentsMetaData } from "../../exhibits";
 
 export type TDirection = "up" | "down";
 
 interface IShowcaseListProps {
-  childrens: ReactNode[];
+  exhibits: IComponentsMetaData[];
   direction: TDirection;
 }
 
-const ShowcaseList = ({ childrens, direction }: IShowcaseListProps) => {
+const ShowcaseList = ({ exhibits, direction }: IShowcaseListProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState(0);
@@ -54,8 +55,8 @@ const ShowcaseList = ({ childrens, direction }: IShowcaseListProps) => {
         contentHeight={contentHeight}
         wrapperHeight={wrapperHeight}
       >
-        {childrens.map((children, idx) => (
-          <Showcase key={`marquee-item ${idx * 2}`}>{children}</Showcase>
+        {exhibits.map((exhibit, idx) => (
+          <Showcase key={`marquee-item ${idx * 2}`} exhibit={exhibit} />
         ))}
       </S.Original>
       <S.Copy
@@ -64,8 +65,8 @@ const ShowcaseList = ({ childrens, direction }: IShowcaseListProps) => {
         contentHeight={contentHeight}
         wrapperHeight={wrapperHeight}
       >
-        {childrens.map((children, idx) => (
-          <Showcase key={`marquee-item ${idx * 2 + 1}`}>{children}</Showcase>
+        {exhibits.map((exhibit, idx) => (
+          <Showcase key={`marquee-item ${idx * 2 + 1}`} exhibit={exhibit} />
         ))}
       </S.Copy>
     </S.Wrapper>
