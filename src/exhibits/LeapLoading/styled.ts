@@ -82,17 +82,17 @@ export const Dot = styled.div`
   height: 20px;
   border-radius: 50%;
 
-  &:nth-child(1) {
+  &:nth-of-type(1) {
     animation: ${leap1} 3s infinite;
     background-color: #e26ee5;
   }
 
-  &:nth-child(2) {
+  &:nth-of-type(2) {
     animation: ${leap2} 3s infinite;
     background-color: #7e30e1;
   }
 
-  &:nth-child(3) {
+  &:nth-of-type(3) {
     animation: ${leap3} 3s infinite;
     background-color: #49108b;
   }
