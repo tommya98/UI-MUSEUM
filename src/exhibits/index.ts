@@ -1,13 +1,14 @@
 import DontClickButton from "./DontClickButton";
 import LikeButton from "./LikeButton";
 import MyComponent from "./MyComponent";
+import LeapLoading from "./LeapLoading";
 
 export type TComponentName =
   | "DontClickButton"
   | "LikeButton"
+  | "LeapLoading"
   | "MyComponent1"
-  | "MyComponent2"
-  | "MyComponent3";
+  | "MyComponent2";
 
 export interface IComponentsMetaData {
   componentName: TComponentName;
@@ -23,9 +24,9 @@ export interface IComponentsMetaData {
 export const componentMapper = {
   DontClickButton,
   LikeButton,
+  LeapLoading,
   MyComponent1: MyComponent,
   MyComponent2: MyComponent,
-  MyComponent3: MyComponent,
 };
 
 const componentsWithMetaData: IComponentsMetaData[] = [
@@ -49,7 +50,17 @@ const componentsWithMetaData: IComponentsMetaData[] = [
       url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/LikeButton",
     },
   },
-  ...["red", "blue", "grey"].map((color, index) => ({
+  {
+    componentName: "LeapLoading",
+    props: {},
+    metaData: {
+      title: "무한 로딩 UI",
+      description: "앞으로 가지 못하고 계속 돌아오는 무한 로딩 UI입니다.",
+      date: "2024-02-28",
+      url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/LeapLoading",
+    },
+  },
+  ...["red", "blue"].map((color, index) => ({
     componentName: `MyComponent${index + 1}` as TComponentName,
     props: { bg: color },
     metaData: {
