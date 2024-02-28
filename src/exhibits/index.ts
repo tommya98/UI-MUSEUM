@@ -2,11 +2,13 @@ import DontClickButton from "./DontClickButton";
 import LikeButton from "./LikeButton";
 import MyComponent from "./MyComponent";
 import LeapLoading from "./LeapLoading";
+import AtomOrbit from "./AtomOrbit";
 
 export type TComponentName =
   | "DontClickButton"
   | "LikeButton"
   | "LeapLoading"
+  | "AtomOrbit"
   | "MyComponent1"
   | "MyComponent2";
 
@@ -25,6 +27,7 @@ export const componentMapper = {
   DontClickButton,
   LikeButton,
   LeapLoading,
+  AtomOrbit,
   MyComponent1: MyComponent,
   MyComponent2: MyComponent,
 };
@@ -58,6 +61,16 @@ const componentsWithMetaData: IComponentsMetaData[] = [
       description: "앞으로 가지 못하고 계속 돌아오는 무한 로딩 UI입니다.",
       date: "2024-02-28",
       url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/LeapLoading",
+    },
+  },
+  {
+    componentName: "AtomOrbit",
+    props: {},
+    metaData: {
+      title: "원자 궤도 모형",
+      description: "보어의 원자 궤도 모형에서 아이디어를 얻은 컴포넌트입니다.",
+      date: "2024-02-28",
+      url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/AtomOrbit",
     },
   },
   ...["red", "blue"].map((color, index) => ({
