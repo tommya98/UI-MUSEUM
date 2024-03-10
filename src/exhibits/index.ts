@@ -3,12 +3,14 @@ import LikeButton from "./LikeButton";
 import MyComponent from "./MyComponent";
 import LeapLoading from "./LeapLoading";
 import AtomOrbit from "./AtomOrbit";
+import NotificationIcon from "./NotificationIcon";
 
 export type TComponentName =
   | "DontClickButton"
   | "LikeButton"
   | "LeapLoading"
   | "AtomOrbit"
+  | "NotificationIcon"
   | "MyComponent1"
   | "MyComponent2";
 
@@ -28,6 +30,7 @@ export const componentMapper = {
   LikeButton,
   LeapLoading,
   AtomOrbit,
+  NotificationIcon,
   MyComponent1: MyComponent,
   MyComponent2: MyComponent,
 };
@@ -73,7 +76,18 @@ const componentsWithMetaData: IComponentsMetaData[] = [
       url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/AtomOrbit",
     },
   },
-  ...["red", "blue"].map((color, index) => ({
+  {
+    componentName: "NotificationIcon",
+    props: {},
+    metaData: {
+      title: "종모양 알림 아이콘",
+      description:
+        "새로운 알림이 있다면 신호를 주는 알림 아이콘입니다. 빨간 알림 아이콘에 마우스를 가져다 대면 알림 개수를 확인할 수 있습니다.",
+      date: "2024-03-10",
+      url: "https://github.com/tommya98/UI-MUSEUM/tree/main/src/exhibits/NotificationIcon",
+    },
+  },
+  ...["red"].map((color, index) => ({
     componentName: `MyComponent${index + 1}` as TComponentName,
     props: { bg: color },
     metaData: {
